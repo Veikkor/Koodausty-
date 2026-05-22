@@ -13,9 +13,11 @@ Valikossa voit valita mitä peliä haluat pelata, vaihtoehdot ovat:
 1. Ruletti
 2. Tower
 3. Coinflip
+4. Pelihistoria
 
 Voit valita mitä peliä haluat pelata kirjoittamalla halutun pelin numeron (1 - 3).
-Pelin valittaessa sinulle tulostuu pelin ohjeet sekä säännöt
+Pelin valittaessa sinulle tulostuu pelin ohjeet sekä säännöt. Tai voit valita pelihistoria (4), joka tulostaa pelihistorian,
+eli pelin, voitto vai häviö ja summan joka voitettiin tai hävittiin
 
 # Saldo ja panostaminen
 - Jokaisen pelin alussa kysytään pelaajan saldo
@@ -53,6 +55,10 @@ Coinflip on peli, jossa kone "heittää" kolikkoa ja sinun pitää arvata kummal
 - Valitse Kruuna tai Klaava
 - Kolikko heitetään aina satunnaisesti
 - Oikea arvaus = 2x panoksesi
+
+## Pelihistoria
+Pelihistoriassa voi nähdä pelatut pelit ja voititko/hävisitkö ja kuinka paljon voitit(hävisit
+
 
 ## Virheelliset syötteet
 Jos käyttäjä syöttää
