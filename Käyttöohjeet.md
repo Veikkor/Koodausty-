@@ -57,7 +57,7 @@ Coinflip on peli, jossa kone "heittää" kolikkoa ja sinun pitää arvata kummal
 - Oikea arvaus = 2x panoksesi
 
 ## Pelihistoria
-Pelihistoriassa voi nähdä pelatut pelit ja voititko/hävisitkö ja kuinka paljon voitit(hävisit
+Pelihistoriassa voi nähdä pelatut pelit ja voititko/hävisitkö ja kuinka paljon voitit tai hävisit
 
 
 ## Virheelliset syötteet
