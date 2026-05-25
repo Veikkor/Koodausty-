@@ -6,6 +6,7 @@ Pelit ovat:
 - 🎡 Ruletti
 - 🗼 Tower
 - 🪙 Coinflip
+- Pelaaja voi myös nähdä oman pelihistoriansa.
 
 ## Ominaisuudet
 - Syötteiden tarkistus
@@ -13,6 +14,7 @@ Pelit ovat:
 - Voitto- ja häviölogiikka
 - Tekstipohjainen käyttöliittymä
 - Muutamia kasinopelejä yhdessä ohjelmassa
+- Pelihistorian näkeminen
 
 ## Käynnistäminen
  
@@ -22,8 +24,8 @@ Pelit ovat:
  
 ## Käyttö
  
-Ohjelman käynnittäessä tulostuu näytölle kasino-menu. Menussa voit valita mitä peliä pelaat ja valittaessa pelin, tulostuu pelin säännöt sekä ohjeet.
-Pelaaja voi tämän jälkeen valita haluamansa panokset ja erilaiset panostus variaatiot ja sen jälkeen suorittaa pelin. Pelaaja joko voittaa tai häviää ja ohjelma päivittää pelaajan valitseman saldon sen perusteella.
+Ohjelman käynnittäessä tulostuu näytölle kasino-menu. Menussa voit valita mitä peliä pelaat ja valittaessa pelin, tulostuu pelin säännöt sekä ohjeet, pelaaja voi myös valita vaihtoehdon "4" joka tulostaa pelaajan pelihistorian.
+Pelaaja voi pelin valinnan jälkeen valita haluamansa panokset ja erilaiset panostus variaatiot ja sen jälkeen suorittaa pelin. Pelaaja joko voittaa tai häviää ja ohjelma päivittää pelaajan valitseman saldon sen perusteella.
 
 ## Tulevat ominaisuudet 
 - Blackjack valmiiksi
