@@ -14,3 +14,30 @@ Ohjelma tarkistaa syötteiden toimivuuden eikä hyväksy virheellistä syötett�
 - Coinflip-pelissä käyttäjä valitsee kruunan tai klaavan, jonka jälkeen ohjelma arpoo kolikon tuloksen.
 
 Ohjelma tallentaa kaikki pelaajan voitot sekä häviöt ja näyttää missä pelissä ne tapahtuivat ja paljonko tulos oli. Käyttäjä voi tarkistella pelihistoriaansa pelivalikosta
+
+## Tärkeimmät koodinkohdat
+Koodissa on tehty monia erilaisia funktioita tekemään koodin rakenteesta fiksumman
+
+- Tarkistus
+    - Olen tehnyt funktion joka auttaa tarkistamaan että saldoa ja panosta kysyttäessä, väärän syötteen laittaminen aiheuttaa virheilmoituksen ja kysyy syötettä uudelleen. Funktiota pystyi myös käyttämään hyvin ruletissa joissain panostustavan valintakohdissa
+- Tekstitarkistus
+    - Se on funktio, jonka avulla voin tarkistaa ruletissa panostustavan ilman joka kohdassa saman säännön toistamista
+- Tarkistapanos
+    - Funktio tarkistaa kutsuttaessa aina onko annettu panos oikeanlainen, kutsun koodissa funktiota aina panoksen laittamisen jälkeen
+- Tallenna
+    - Tallenna funktio mahdollistaa joka voiton ja häviön kohdalla niiden tallentamisen uuteen tiedostoon
+- Ruletti
+    - Funktion sisällä on koko ruletti peli ja sen toiminta
+- Tower
+    - Funktion sisällä on koko tower peli ja sen toiminta
+- Coinflip
+    - Funktion sisällä on koko coinflip peli ja sen toiminta
+- Main
+    - Kaikista tärkein funktio, funktiota kutsuttaessa ohjelma alkaa
+
+## Tiedostotallennus
+Ohjelma tallentaa aina peliä pelatessa pelaajan voitot ja häviöt erilliseen tiedostoon talteen. Tiedot tallennetaan muodossa, esimerkki: 
+
+"COINFLIP | VOITTO | 15€" 
+
+Tällä tavalla pelaaja voi seurata voittoja ja häviöitänsä ja laskea vaikka kuinka paljon hän on yhteensä voittanut ja hävinnyt
