@@ -33,6 +33,7 @@ Pelaaja voi pelin valinnan jälkeen valita haluamansa panokset ja erilaiset pano
 - Kertoimien parantaminen
 - Parempi UI
 - Leaderboard
+- Toweriin mahdollisuus päättä pommien ja laattojen määrä ja voittojen mukautuminen niiden perusteella
  
 ## Tekijä
  
