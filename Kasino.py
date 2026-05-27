@@ -16,9 +16,11 @@ def main():
 #        print(" ")
         print("3. Coinflip")
         print(" ")
+        print("4. pelihistoria")
+        print(" ")
         while True:
             pelivalinta = input("Valitse peli: ")
-            if pelivalinta in ["1", "2", "3"]:
+            if pelivalinta in ["1", "2", "3", "4"]:
                 break
             print("Tätä peliä ei löytynyt🤔")
             time.sleep(1)
@@ -83,9 +85,9 @@ def main():
             print(" ")
             tower()
         #elif pelivalinta == "3":
-            print("---=== BLACKJACK ===---")
-            print("In maintance")
-            blackjack()
+            #print("---=== BLACKJACK ===---")
+            #print("In maintance")
+            #blackjack()
         elif pelivalinta == "3":
             print(" ")
             print("---=== COINFLIP ===---")
@@ -105,6 +107,23 @@ def main():
             print("Maksimi panos: 999999")
             print(" ")
             coinflip()
+        elif pelivalinta == "4":
+            print(" ")
+            print("---=== PELIHISTORIA ===---")
+            print(" ")
+            try:
+                with open("pelihistoria.txt") as tiedosto:
+                    sisalto = tiedosto.read()
+                    print(sisalto)
+            except FileNotFoundError:
+                print("Pelihistoriaa ei vielä ole :(")
+                time.sleep(1.5)
+            
+def tallenna(peli, tila, summa):
+    teksti = f"{peli} | {tila} | {summa}€"
+    with open("pelihistoria.txt", "a") as tiedosto:
+        tiedosto.write(teksti + "\n")
+    print("Tallennettu:", teksti)
             
 def rulettivoitto():
     print("🟩🟩🟩🟩🟩🟩🟩🟩")
@@ -115,7 +134,6 @@ def rulettihavio():
     print("🟥🟥🟥🟥🟥🟥🟥🟥")
     print(f"🟥  Hävisit...🟥")
     print("🟥🟥🟥🟥🟥🟥🟥🟥")
-
 
 def rulettipyora():
     tulos = random.randint(0, 36)
@@ -148,7 +166,7 @@ def tarkistus(teksti, minimibet, maksimibet): #tarkistus perkele
 def tarkistapanos(panos, saldo):
     while panos > saldo:
         print("Et voi panostaa enempää kuin saldosi")
-        panos = int(input("Anna uusi panos: "))
+        panos = tarkistus("Anna uusi panos: ", 1, 999999)
     return panos
     
 
@@ -208,10 +226,12 @@ def ruletti():
             print("Tulos on punainen!")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         elif vari == "musta" and tulos in musta:
             print("Tulos on musta!")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         else:
             if tulos in punanen:
                 print("Tulos on punainen!")
@@ -219,6 +239,7 @@ def ruletti():
                 print("Tulos on musta!")
             rulettihavio()
             saldo -= panos
+            tallenna("RULETTI", "HÄVIÖ", -panos)
         
         
     elif tapa == "2":
@@ -226,13 +247,16 @@ def ruletti():
             print("Tulos on parillinen!")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         elif parillinen_pariton == "pariton" and tulos in pariton:
             print("Tulos on pariton!")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         else:
             rulettihavio()
             saldo -= panos
+            tallenna("RULETTI", "HÄVIÖ", -panos)
         
         
     elif tapa == "3":
@@ -240,42 +264,54 @@ def ruletti():
             print("Arvasit alueen 1, (0-18)")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         elif alue == 2 and tulos in alue2:
             print("Arvasit alueen 2, (19-36)")
             rulettivoitto()
             saldo += panos
+            tallenna("RULETTI", "VOITTO", panos)
         else:
             print(tulos, " ei ole alueella: ", alue)
             rulettihavio()
             saldo -= panos
-
+            tallenna("RULETTI", "HÄVIÖ", -panos)
 
     elif tapa == "4":
         if numero == tulos:
             rulettivoitto()
-            saldo += panos * 35
+            voitto = panos * 35
+            saldo += voitto
+            tallenna("RULETTI", "VOITTO", voitto)
         else:
             rulettihavio()
             saldo -= panos
+            tallenna("RULETTI", "HÄVIÖ", -panos)
 
         
     elif tapa == "5":
         if rivi == 1 and tulos in rivi1:
             print("Tulos on rivillä 1!")
             rulettivoitto()
-            saldo += panos * 3
+            voitto = panos * 3
+            saldo += voitto
+            tallenna("RULETTI", "VOITTO", voitto)
         elif rivi == 2 and tulos in rivi2:
             print("Tulos on rivillä 2!")
             rulettivoitto()
-            saldo += panos * 3
+            voitto = panos * 3
+            saldo += voitto
+            tallenna("RULETTI", "VOITTO", voitto)
         elif rivi == 3 and tulos in rivi3:
             print("Tulos on rivillä 3!")
             rulettivoitto()
-            saldo += panos * 3
+            voitto = panos * 3
+            saldo += voitto
+            tallenna("RULETTI", "VOITTO", voitto)
         else:
             print("Tulos ei ole rivillä ", rivi)
             rulettihavio()
             saldo -= panos
+            tallenna("RULETTI", "HÄVIÖ", -panos)
             
     print("")
     print("Saldo tällä hetkellä:", saldo)
@@ -319,6 +355,7 @@ def tower():
             print("Hävisit! Peli ohi!")
             print("🟥🟥🟥🟥🟥🟥🟥🟥")
             saldo -= panos
+            tallenna("TOWER", "HÄVIÖ", -panos)
             print("Saldo tällä hetkellä:", saldo)
             return
         else:
@@ -336,6 +373,7 @@ def tower():
                 jatka = input("Haluatko jatkaa? (k/e): ").lower()
                 if jatka == "e":
                     saldo += voitto
+                    tallenna("TOWER", "CASHOUT", voitto)
                     print(" ")
                     print("Cashoutataan.")
                     time.sleep(2)
@@ -354,11 +392,12 @@ def tower():
     print(" ")
     print("VOITIT TORNIN")  
     saldo += voitto
+    tallenna("TOWER", "TORNI VOITETTU", voitto)
     print("Saldo:", saldo, "€")
     
 #def blackjack():
-    print("---=== BLACKJACK ===---")
-    print("saldo:", saldo)
+    #print("---=== BLACKJACK ===---")
+    #print("saldo:", saldo)
     
 def coinflip():
     saldo = tarkistus("Kuinka paljon saldoa sinulla on? ", 1, 999999)
@@ -387,11 +426,17 @@ def coinflip():
         print("Vastaus oli", vastaus)
         rulettivoitto()
         saldo += panos
+        tallenna("COINFLIP", "VOITTO", panos)
     else:
         print("Vastaus oli", vastaus)
         rulettihavio()
         saldo -= panos
-    print("Voitit", panos, "€")
-    print("Saldo: ", saldo, "€")
+        tallenna("COINFLIP", "HÄVIÖ", -panos)
+    if valinta == vastaus:
+        print("Voitit", panos, "€")
+        print("Saldo: ", saldo, "€")
+    else:
+        print("Voitit 0€")
+        print("Saldo: ", saldo, "€")
 
 main()
